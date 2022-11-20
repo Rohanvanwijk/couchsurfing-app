@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Web site created using create-snowpack-app" />
+    <link rel="stylesheet" type="text/css" href="/index.css" />
+    <title>Couch surfing app</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script type="module" src="/dist/index.js"></script>
+    <div class="d-flex flex-column justify-content-between">
+      <header>
+        <nav class="navbar navbar-dark bg-dark">
+          <div class="container">
+            <a href="/" class="navbar-brand">
+              <img src="./logo.png" alt="logo" width="40">
+            </a>
+            <div class="navbar-brand">
+              <span>Welcome</span>
+              <span id="returning-user"></span>
+              <span id="user"></span>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="container">
+          <h5 id="reviews"></h5>
+          <button class="btn btn-primary">Get reviews</button>
+          <hr />
+          <h3>Other Properties recommended to you:</h3> 
+           <div class="properties"></div>
+        </div>
+      </main>
+      <footer>
+        <div class="container">
+          Footer
+          <div class=".js-footer"></div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
