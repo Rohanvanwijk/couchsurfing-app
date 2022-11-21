@@ -1,6 +1,8 @@
-# New Project
+# Couch surfing app
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+## Goal of this project
+
+To learn typescript based on this free course on Scrimba: https://scrimba.com/learn/typescript
 
 ## Available Scripts
 

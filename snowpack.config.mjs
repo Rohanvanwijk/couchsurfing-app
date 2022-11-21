@@ -31,4 +31,10 @@ export default {
   buildOptions: {
     /* ... */
   },
+  alias: {
+    'enums': './src/enums',
+    'interfaces': './src/interfaces',
+    'types': './src/types',
+    'classes': './src/classes',
+  },
 };

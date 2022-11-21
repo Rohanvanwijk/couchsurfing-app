@@ -1,4 +1,4 @@
-import type LoyaltyUser from "../enums/LoyaltyUser";
+import type LoyaltyUser from "enums/LoyaltyUser";
 
 export default interface Review {
     name: string; 
