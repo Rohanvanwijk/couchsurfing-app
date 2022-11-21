@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { populateUser, showReviewTotal, handleReviewButton, injectMainPropertyImage, injectRecommendedProperties } from './utils';
+import { populateUser, showReviewTotal, handleReviewButton, injectMainPropertyImage, injectRecommendedProperties, injectTenRandomJokes } from './utils';
 import type Review from 'interfaces/Review';
 import LoyaltyUser from 'enums/LoyaltyUser';
 import Permissions from 'enums/Permissions';
@@ -90,7 +90,23 @@ const properties : Property[] = [
         },
         contact: [+34829374892553, 'andyluger@aol.com'],
         isAvailable: true
+    },
+    {
+        image: 'https://cloud.funda.nl/valentina_media/167/369/177_720x480.jpg',
+        title: 'Huize ‘Eiken Bosch’',
+        price: 45,
+        location: {
+            firstLine: 'Zandvoorterweg 61 A',
+            city: 'Aerdenhout',
+            code: '2111 GT',
+            country: 'Netherlands',
+        },
+        contact: [+310235243424, 'info@funda.nl'],
+        isAvailable: true,
     }
 ]
 
 injectRecommendedProperties(properties, you);
+
+injectTenRandomJokes('https://official-joke-api.appspot.com/jokes/programming/ten');
+

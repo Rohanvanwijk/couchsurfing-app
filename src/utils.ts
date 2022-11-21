@@ -3,6 +3,8 @@ import type Review from "interfaces/Review";
 import Permissions from "enums/Permissions";
 import type Property from "interfaces/Property";
 import type User from "interfaces/User";
+import axios from "axios";
+import type Joke from "interfaces/Joke";
 
 const reviewTotalDisplay = document.querySelector('#reviews');
 const returningUserDisplay = document.querySelector('#returning-user');
@@ -11,6 +13,7 @@ const reviewContainerElement = document.querySelector('.js-review-container');
 const showReviewButton = document.querySelector('.js-show-reviews-button');
 const imageContainerElement = document.querySelector('.js-image-container');
 const propertiesContainerElement = document.querySelector('.js-properties-container');
+const jokesContainerElement = document.querySelector('.js-jokes-container');
 
 export function populateUser(isReturning : boolean, userName: string, permission: Permissions ): void {
   if (!userNameDisplay) {
@@ -84,7 +87,7 @@ export function injectRecommendedProperties(properties: Property[], you: User): 
   properties.forEach((property) => {
 
     const column = createDivElement('', ['col-12', 'col-md-4']);
-    const card = createDivElement('', ['card']);
+    const card = createDivElement('', ['card', 'mb-3']);
     const cardHeader = createDivElement(property.title, ['card-header']);
     const cardBody = createDivElement('', ['card-body']);
     const cardFooter = createDivElement('', ['card-footer', 'd-flex', 'justify-content-between']);
@@ -127,4 +130,32 @@ export function showDetails(access: boolean | Permissions, element : HTMLDivElem
       priceDisplay.innerHTML = price.toString() + '/night';
       element.appendChild(priceDisplay);
   }
+}
+
+export function injectTenRandomJokes(url: string): void {
+
+  axios.get(url).then((res) => {
+    res.data.forEach((joke: Joke) => {
+
+      const column = createDivElement('', ['col-12', 'col-md-4']);
+
+      const card = createDivElement('', ['card', 'mb-3']);
+      const cardHeader = createDivElement(joke.setup, ['card-header']);
+      const cardBody = createDivElement(joke.punchline, ['card-body']);
+      const cardFooter = createDivElement(joke.type, ['card-footer', 'text-muted', 'small']);
+
+    
+      card.appendChild(cardHeader); 
+      card.appendChild(cardBody);
+      card.appendChild(cardFooter);
+
+      column.appendChild(card);
+
+
+      jokesContainerElement?.appendChild(column);
+    });
+
+    
+  }).catch((error) => console.error(error));
+
 }
